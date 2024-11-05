@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+class HelloWorld {
+    public static boolean isPalin(String s) {
+        int oddCount = 0;
+        int[] charCount = new int[26];
+        
+        // Count frequency of each letter
+        for (char ch : s.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                ch = Character.toLowerCase(ch);
+                int index = ch - 'a';
+                charCount[index]++;
+            }
+        }
+        
+        // Count how many characters have an odd frequency
+        for (int count : charCount) {
+            if (count % 2 != 0) {
+                oddCount++;
+            }
+        }
+        
+        // A string can form a palindrome if it has at most one odd character count
+        return oddCount <= 1;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = scanner.nextLine();  // Get input from the user
+        
+        if (isPalin(s)) {
+            System.out.println("The string can be rearranged to form a palindrome.");
+        } else {
+            System.out.println("The string cannot be rearranged to form a palindrome.");
+        }
+
+        scanner.close();
+    }
+}
