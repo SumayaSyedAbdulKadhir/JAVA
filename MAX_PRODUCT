@@ -1,0 +1,33 @@
+import java.util.*;
+
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {9, -10, 8, -5};
+        System.out.println("Max product: " + maxProduct(arr));
+    }
+
+    public static int maxProduct(int[] arr) {
+        int min1 = Integer.MAX_VALUE, min2 = Integer.MAX_VALUE;
+        int max1 = Integer.MIN_VALUE, max2 = Integer.MIN_VALUE;
+
+        for (int num : arr) {
+            if (num > max1) {
+                max2 = max1;
+                max1 = num;
+            } else if (num > max2) {
+                max2 = num;
+            }
+
+            if (num < min1) {
+                min2 = min1;
+                min1 = num;
+            } else if (num < min2) {
+                min2 = num;
+            }
+        }
+
+        int productMax = max1 * max2;
+        int productMin = min1 * min2;
+        return Math.max(productMax, productMin);
+    }
+}
