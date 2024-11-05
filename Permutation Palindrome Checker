@@ -39,3 +39,8 @@ class HelloWorld {
         scanner.close();
     }
 }
+
+
+output:
+Enter a string: mslsya 8im
+The string cannot be rearranged to form a palindrome.
