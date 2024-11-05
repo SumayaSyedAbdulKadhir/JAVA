@@ -35,3 +35,20 @@ class HelloWorld {
         System.out.println("Sum of numbers from 1 to " + count + ": " + sum);
     }
 }
+
+
+Output:
+Enter hai count: 2
+Enter row count: 3
+Enter block count: 4
+hai hai hai hai 
+hai hai hai hai 
+hai hai hai hai 
+Current count after row 0: 12
+
+hai hai hai hai 
+hai hai hai hai 
+hai hai hai hai 
+Current count after row 1: 24
+
+Sum of numbers from 1 to 24: 300
