@@ -1,0 +1,36 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr={1,2,3,4,5};
+        Scanner sc=new Scanner(System.in);
+        
+        int a=sc.nextInt();
+        int res=bsearch(arr,a);
+        if(res!=-1){
+            System.out.println("Found");
+        }
+        else{
+             System.out.println(" Not Found");
+        }
+    }
+    
+    public static int bsearch(int[] arr,int a){
+        int start=0;
+        int end=arr.length-1;
+        int mid;
+        while(start<=end){
+            mid=start+(end-start)/2;
+            if(arr[mid]==a){
+                return mid;
+            }
+            else if(a>arr[mid]){
+                start=mid+1 ;
+            }
+            else{
+               
+                end=mid-1;
+            }
+        }
+      return -1;
+    }
+}
