@@ -1,0 +1,35 @@
+import java.util.*;
+class HelloWorld {
+     public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] a=new int[n];
+        for(int k=0;k<n;k++){
+        a[k]=sc.nextInt();
+        }
+        System.out.println(lcs(a));
+    }
+    
+public static int lcs(int[] a){
+    int i,j;
+    int maxi=1;
+    int[] b=new int[a.length];
+    for( i=0;i<b.length;i++){
+        b[i]=1;
+    }
+    
+    for(i=1;i<a.length;i++){
+        for(j=0;j<i;j++){
+           if(a[j]<a[i]){
+               b[i]=Math.max(b[i],b[j]+1);
+           }
+           maxi=Math.max(maxi,b[i]);
+        }
+        
+    }
+    return maxi;
+    
+}
+   
+}
