@@ -1,0 +1,113 @@
+import java.util.*;
+
+class HelloWorld {
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       Random r=new Random();
+       System.out.println("Enter team1:");
+       String team1=sc.nextLine();
+       System.out.println("Enter team2:");
+       String team2=sc.nextLine();
+       int ans1=r.nextInt(300)+1;
+       int ans2=r.nextInt(300)+1;
+       String[] hint1=new String[3];
+       String[] hint2=new String[3];
+     
+       hint1[0]=(ans1>150)?"It is greater than 150":"It is lesser than 150";
+       hint1[1]=(ans1%2==0)?"It is even":"It is odd";
+       hint1[2]=(ans1%5==0)?"It is divi by 5":"It is not divi by 5";
+       
+        hint2[0]=(ans1>150)?"It is greater than 150":"It is lesser than 150";
+       hint2[1]=(ans1%2==0)?"It is even":"It is odd";
+       hint2[2]=(ans1%5==0)?"It is divi by 5":"It is not divi by 5";
+        System.out.println("____________________________");
+       int c1=0;
+       String ch;
+       for(int i=0;i<3;i++){
+           System.out.println("Do you want hint:?(y/n):");
+           ch=sc.nextLine();
+           if(ch.equalsIgnoreCase("y")){
+               System.out.println(hint1[i]);
+               c1++;
+           }
+           else{
+               break;
+           }
+          }
+           System.out.println("Now  predict ur ans:");
+           
+           int g1=sc.nextInt();
+           sc.nextLine();
+           int s1=300-(c1*25);
+           s1=s1-Math.abs(ans1-g1);
+           
+        System.out.println("____________________________");
+       int c2=0;
+       String ch1;
+       for(int i=0;i<3;i++){
+           System.out.println("Do you want hint:?(y/n):");
+           ch1=sc.nextLine();
+           if(ch1.equalsIgnoreCase("y")){
+               System.out.println(hint2[i]);
+               c2++;
+           }
+           else{
+               break;
+           }
+          }
+           System.out.println("Now  predict ur ans:");
+           
+           int g2=sc.nextInt();
+           sc.nextLine();
+           int s2=300-(c2*25);
+           s2=s2-Math.abs(ans2-g2);
+           
+        System.out.println("____________________________");
+        System.out.println("The ans for team1 is:" +ans1);
+        System.out.println("The score for team1 is:" +s1);
+        System.out.println("The ans for team2 is:" +ans2);
+        System.out.println("The score for team2 is:" +s2);
+        if(s1>s2){
+            System.out.println("Winner is : "+team1);
+         }
+        else if(s1<s2){
+            System.out.println("Winner is : "+team2);
+         }
+        else{
+              System.out.println("Tie");
+         }
+    }
+}
+
+
+output:
+
+Enter team1:
+aus
+Enter team2:
+ind
+____________________________
+Do you want hint:?(y/n):
+y
+It is lesser than 150
+Do you want hint:?(y/n):
+y
+It is even
+Do you want hint:?(y/n):
+n
+Now  predict ur ans:
+88
+____________________________
+Do you want hint:?(y/n):
+y
+It is lesser than 150
+Do you want hint:?(y/n):
+n
+Now  predict ur ans:
+68
+____________________________
+The ans for team1 is:34
+The score for team1 is:196
+The ans for team2 is:135
+The score for team2 is:208
+Winner is : ind
