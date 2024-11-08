@@ -1,0 +1,25 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String str="pwwkew";
+        int s=0;
+        int e=0;
+        int max=0;
+        Set<Character> seen=new HashSet<>();
+       
+        while(e<str.length()){
+           
+        char ch=str.charAt(e);
+        while(seen.contains(ch)){
+            seen.remove(str.charAt(s));
+             s++;
+        }
+            seen.add(ch);
+             max=Math.max(max,e-s+1);
+            e++;
+        }
+        System.out.println(max);
+      }
+    }
