@@ -1,0 +1,108 @@
+class HelloWorld {
+    public static void main(String[] args) {
+        LList l = new LList();
+        l.insert(100);
+        l.insert(200);
+        l.insert(300);
+        l.insert(400);
+        l.insert(500);
+        l.display();
+
+        System.out.println("\nInserting 600 at position 4:");
+        l.insertatpos(4, 600);
+        l.display();
+
+        System.out.println("\nDeleting node at position 3:");
+        l.delete(3);
+        l.display();
+    }
+}
+
+class LList {
+    Node head = null;
+
+    class Node {
+        int data;
+        Node next;
+
+        Node(int val) {
+            data = val;
+            next = null;
+        }
+    }
+
+    public void insert(int val) {
+        Node newnode = new Node(val);
+        if (head == null) {
+            head = newnode;
+        } else {
+            newnode.next = head;
+            head = newnode;
+        }
+    }
+
+    public void insertatpos(int pos, int val) {
+        Node newnode = new Node(val);
+
+        if (pos == 1) {  // Insert at head if position is 1
+            newnode.next = head;
+            head = newnode;
+            return;
+        }
+
+        Node temp = head;
+        
+        // Traverse to the node just before the specified position
+        for (int i = 1; i < pos - 1 && temp != null; i++) {
+            temp = temp.next;
+        }
+
+        // Check if the position is valid
+        if (temp == null) {
+            System.out.println("Position out of bounds.");
+            return;
+        }
+
+        // Insert the new node at the desired position
+        newnode.next = temp.next;
+        temp.next = newnode;
+    }
+
+    public void delete(int pos) {
+        if (head == null) {  // List is empty
+            System.out.println("List is empty.");
+            return;
+        }
+
+        // If the head node is to be deleted
+        if (pos == 1) {
+            head = head.next;
+            return;
+        }
+
+        Node temp = head;
+
+        // Traverse to the node just before the specified position
+        for (int i = 1; i < pos - 1 && temp != null; i++) {
+            temp = temp.next;
+        }
+
+        // Check if the position is valid
+        if (temp == null || temp.next == null) {
+            System.out.println("Position out of bounds.");
+            return;
+        }
+
+        // Delete the node at the desired position
+        temp.next = temp.next.next;
+    }
+
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print("-->" + temp.data);
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+}
