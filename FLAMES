@@ -1,0 +1,72 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        List<Character> l1 = new ArrayList<>();
+        List<Character> l2 = new ArrayList<>();
+        Scanner sc =new Scanner(System.in);
+        String bname,gname;
+        System.out.print("Enter boy name : ");
+        bname = sc.nextLine();
+        System.out.print("Enter girl name : ");
+        gname = sc.nextLine();
+        
+        for (char c : bname.toCharArray()){
+            l1.add(c);
+        }
+        for (char c : gname.toCharArray()){
+            l2.add(c);
+        }
+        
+        int blen = l1.size();
+        int glen = l2.size();
+        int count = 0;
+        
+        
+        for(int i = 0;i<blen;i++){
+            for(int j = 0;j<glen;j++){
+                if(l1.get(i).equals(l2.get(j))){
+                    l1.set(i,'2');
+                    l1.set(i,'2');
+                }
+            }
+        }
+        for(char ch:l1){
+            if(ch!='2'){
+                count++;
+            }
+        }
+        for(char ch1:l2){
+            if(ch1!='2'){
+                count++;
+            }
+        }
+        List<Character> flames = new ArrayList<>(Arrays.asList('F','L','A','M','E','S'));
+        int index = 0;
+        while(flames.size()>1){
+            index = (index+(count-1))%flames.size();
+            flames.remove(index);
+        }
+        for(char ch : flames){
+            System.out.print("In FLAMES : ");
+            if(ch=='F'){
+                System.out.println("Friends");
+            }
+            if(ch=='L'){
+                System.out.println("Love");
+            }
+            if(ch=='A'){
+                System.out.println("Affection");
+            }
+            if(ch=='M'){
+                System.out.println("Marriage");
+            }
+            if(ch=='E'){
+                System.out.println("Enemy");
+            }
+            if(ch=='S'){
+                System.out.println("Sisters");
+            }
+        }
+        
+    }
+}
