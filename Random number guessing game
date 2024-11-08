@@ -1,0 +1,116 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+       Random r=new Random();
+       Scanner sc=new Scanner(System.in);
+       
+       List<Integer> l1=new ArrayList<>();
+       int res;
+       while(l1.size()!=5){
+       res=r.nextInt(10)+1;
+       if (!l1.contains(res)){
+       l1.add(res);
+       }
+      }
+      System.out.println("Enter the name of the player1:");
+      String player1=sc.nextLine();
+      System.out.println("Enter the name of the player2:");
+      String player2=sc.nextLine();
+      System.out.println("Hello"+" " +player1 +" "+"and"+" " +player2);
+       System.out.println("Computer has 5 integers in mind.");
+       List<Integer> p1=new ArrayList<>();
+       List<Integer> p2=new ArrayList<>();
+       int s1=0;
+       int s2=0;
+       int g1;
+       int g2;
+       for(int i=0;i<3;i++){
+           System.out.println("P1:Enter ur choice:");
+           g1=sc.nextInt();
+           
+           while(p1.contains(g1)||p2.contains(g1)){
+               System.out.println("This no. is already chosen .Enter again:");
+                g1=sc.nextInt();
+               
+           }
+            p1.add(g1);
+           if(l1.contains(g1)){
+               System.out.println("Correct");
+               s1++;
+           }
+           else{
+               System.out.println("wrong");
+           }
+       }
+       for (int i = 0; i < 3; i++) {
+           System.out.println("P2:Enter ur choice:");
+           g2=sc.nextInt();
+           
+           while(p1.contains(g2)||p2.contains(g2)){
+               System.out.println("This no. is already chosen .Enter again:");
+                g2=sc.nextInt();
+               
+                
+           }
+            p2.add(g2);
+           if(l1.contains(g2)){
+               System.out.println("Correct");
+               s2++;
+           }
+           else{
+               System.out.println("WRONG");
+           }
+       
+       }
+       System.out.println("Game over");
+       System.out.println("player1 scored: " +s1);
+       System.out.println("player1 scored: " +s2);
+       if(s1>s2){
+           System.out.println("player1 won");
+       }
+       else if(s1<s2){
+           System.out.println("player2 won");
+       }
+       else{
+           System.out.println("tie");
+       }
+    }
+
+}
+
+output:
+java -cp /tmp/2KJFy4RsNK/HelloWorld
+Enter the name of the player1:
+sumaya
+Enter the name of the player2:
+swathi
+Hello sumaya and swathi
+Computer has 5 integers in mind.
+P1:Enter ur choice:
+2
+wrong
+P1:Enter ur choice:
+5
+Correct
+P1:Enter ur choice:
+6
+wrong
+P2:Enter ur choice:
+8
+WRONG
+P2:Enter ur choice:
+5
+This no. is already chosen .Enter again:
+5
+This no. is already chosen .Enter again:
+9
+Correct
+P2:Enter ur choice:
+1
+Correct
+Game over
+player1 scored: 1
+player1 scored: 2
+player2 won
