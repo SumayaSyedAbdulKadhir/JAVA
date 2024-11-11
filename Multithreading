@@ -1,0 +1,36 @@
+import java.util.*;
+public class Main extends Thread {
+    public void run(){
+       String arr1[]= {"abi","kani","prethi"};
+       for(String s1:arr1)
+       {
+       System.out.println(s1);
+       try
+       {
+           Thread.sleep(2000);
+       }
+       catch(InterruptedException e)
+       {
+           System.out.println("Thread interrupted");
+       }
+       }
+    }
+    public static void main(String[] args)
+    {
+        Main disThread = new Main();
+        disThread.start();
+        String arr2[] = {"kavin","surya","gokul"};
+        for(String s2:arr2)
+        {
+        System.out.println(s2);
+        try
+        {
+        Thread.sleep(2000);
+        }
+        catch(InterruptedException e)
+        {
+        System.out.println("Thread interrupted");
+        }
+        }
+    }
+}
