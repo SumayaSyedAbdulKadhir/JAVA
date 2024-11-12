@@ -1,0 +1,15 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	 Set<Character> st=new HashSet<>();
+	 String s="avbfsraadg";
+	 
+	 for(char ch:s.toCharArray()){
+	     System.out.println(ch);
+	     st.add(ch);
+	 }
+
+	 System.out.println(st);
+	}
+}
