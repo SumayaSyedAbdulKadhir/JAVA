@@ -1,0 +1,22 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	 String s="0011";
+	 int n=s.length();
+	 int ans=0;
+	 int p=0;
+	 for(int i=n-1;i>=0;i--){
+	     if(s.charAt(i)=='0'){
+	         ans+=0;
+	     }
+	   else if(s.charAt(i)=='1'){
+	             ans+=Math.pow(2,p);
+	             
+	         }
+	         p++;
+	     }
+	   System.out.println(ans);
+	  
+	}
+}
