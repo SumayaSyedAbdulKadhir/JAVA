@@ -2,7 +2,7 @@ import java.util.*;
 public class Main
 {
 	public static void main(String[] args) {
-	 Set<Character> st=new HashSet<>();
+	 Set<Character> st=new LinkedHashSet<>();
 	 String s="avbfsraadg";
 	 
 	 for(char ch:s.toCharArray()){
