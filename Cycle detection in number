@@ -1,0 +1,29 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int n=64;
+        
+       ArrayList<Integer>a=new ArrayList<>();
+       
+       while(n!=1&&!a.contains(n)){
+          a.add(n);
+          n=sumofsquare(n);
+       }
+       if(n==1){
+           System.out.println("rounded");
+       }
+       else{
+           System.out.println("not rounded");
+       }
+    }
+          
+    public static int sumofsquare(int n) {
+        int sum = 0;
+        while (n > 0) {
+            int digit = n % 10;
+            sum += digit * digit;
+            n /= 10;
+        }
+        return sum;
+    }
+}
