@@ -1,0 +1,137 @@
+import java.util.*;
+
+// Class for a Singly Linked List
+class SinglyLinkedList {
+    Node head = null; // Initial head of the list is null
+    
+    // Inner class for a Node in the linked list
+    class Node {
+        List<Integer> data; // Data stored in each node (a list of integers)
+        Node next; // Pointer to the next node
+        
+        // Constructor to initialize data in a node
+        Node(List<Integer> l) {
+            data = l;
+            next = null;
+        }
+    }
+    
+    // Method to insert a node at the beginning of the list
+    public void insertAtBeginning(List<Integer> l) {
+        Node newnode = new Node(l); // Create new node with given data
+        newnode.next = head; // Point new node to the current head
+        head = newnode; // Update head to the new node
+        System.out.println("Inserted Successfully at the beginning.");
+    }
+    
+    // Method to insert a node at the end of the list
+    public void insertAtEnd(List<Integer> l) {
+        Node newnode = new Node(l); // Create new node with given data
+        if (head == null) { // If list is empty, new node is now the head
+            head = newnode;
+        } else {
+            Node current = head; // Start from head and traverse to end of list
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newnode; // Link last node to new node
+        }
+        System.out.println("Inserted Successfully at the end.");
+    }
+    
+    // Method to delete a node at a specific position
+    public void delete(int position) {
+        if (head == null) { // Check if list is empty
+            System.out.println("List is empty, nothing to delete.");
+            return;
+        }
+        if (position == 1) { // Delete head if position is 1
+            head = head.next;
+            System.out.println("Deleted node at position " + position);
+            return;
+        }
+        Node current = head; // Start from head
+        for (int i = 1; i < position - 1; i++) { // Traverse to the node just before the target
+            if (current.next == null) { // If position is out of bounds
+                System.out.println("Position out of bounds");
+                return;
+            }
+            current = current.next;
+        }
+        if (current.next == null) { // Check if next node exists
+            System.out.println("Position out of bounds");
+            return;
+        }
+        current.next = current.next.next; // Skip over the node to delete it
+        System.out.println("Deleted node at position " + position);
+    }
+    
+    // Method to display the elements in the list
+    public void display() {
+        if (head == null) { // Check if list is empty
+            System.out.println("List is empty.");
+            return;
+        }
+        Node current = head; // Start from head
+        while (current != null) { // Traverse each node and print its data
+            System.out.print(current.data + " -> ");
+            current = current.next;
+        }
+        System.out.println("null"); // End of list
+    }
+}
+
+// Main class to run the program
+public class Main {
+    public static void main(String[] args) {
+        Scanner io = new Scanner(System.in);
+        System.out.println("Singly Linked List (Using List): ");
+        System.out.println("***");
+        System.out.println("You can perform the operations listed below");
+        System.out.println("-->1. Insert at beginning");
+        System.out.println("-->2. Insert at end");
+        System.out.println("-->3. Delete at position");
+        System.out.println("-->4. Display");
+        System.out.println("-->5. Exit");
+        System.out.println("***");
+
+        int choice = -1;
+        SinglyLinkedList sll = new SinglyLinkedList(); // Instantiate the linked list
+
+        while (choice != 5) {
+            System.out.print("Enter your choice: ");
+            choice = io.nextInt();
+
+            List<Integer> list = new ArrayList<>(); // Initialize list to store data for each node
+
+            if (choice == 1) {
+                System.out.print("Enter the size of your list: ");
+                int n = io.nextInt();
+                for (int i = 0; i < n; i++) { // Take user input for each element in the list
+                    System.out.print((i + 1) + " element -> ");
+                    list.add(io.nextInt());
+                }
+                sll.insertAtBeginning(list); // Insert the list at the beginning
+            } else if (choice == 2) {
+                System.out.print("Enter the size of your list: ");
+                int n = io.nextInt();
+                for (int i = 0; i < n; i++) { // Take user input for each element in the list
+                    System.out.print((i + 1) + " element -> ");
+                    list.add(io.nextInt());
+                }
+                sll.insertAtEnd(list); // Insert the list at the end
+            } else if (choice == 3) {
+                System.out.print("Enter the position where you want to delete: ");
+                int pos = io.nextInt();
+                sll.delete(pos); // Delete node at the given position
+            } else if (choice == 4) {
+                System.out.println("The elements in the linked list are:");
+                sll.display(); // Display the list
+            } else if (choice == 5) {
+                System.out.println("Exiting the program."); // Exit the loop and end program
+            } else {
+                System.out.println("Please enter a valid choice."); // Handle invalid choice input
+            }
+        }
+    }
+}
