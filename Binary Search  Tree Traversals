@@ -1,0 +1,151 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+class Node{
+    int data;
+    Node left;
+    Node right;
+    
+    Node(int val){
+        this.data=val;
+        this.left=null;
+        this.right=null;
+    }
+}
+ class tree{
+   public  Node root=null;
+    public void insert(int val){
+        Node don=new Node(val);
+        if(root==null){
+            root=don;
+            return;
+        }
+        else
+        {
+            Node temp=root;
+            while(true)
+            {
+                if(temp.data>don.data)
+                {
+                    if(temp.left==null)
+                    {
+                    temp.left=don;
+                    break;
+                    }
+                    else
+                    {
+                    temp=temp.left;
+                    
+                    }
+                } 
+                else
+                {
+                   
+                    if(temp.right==null)
+                    {
+                    temp.right=don;
+                    break;
+                    }
+                    else
+                    {
+                    temp=temp.right;
+                    }
+                }
+            }
+          
+        }
+        
+    }
+    public void pre(Node root){
+        if(root!=null){
+            System.out.println(root.data+" ");
+            pre(root.left);
+            pre(root.right);
+        }
+    }
+    public void  inorder(Node root){
+         if(root!=null){
+             pre(root.left);
+            System.out.println(root.data+" ");
+            pre(root.right);
+        }
+    }
+    public void  postorder(Node root){
+         if(root!=null){
+             pre(root.left);
+             pre(root.right);
+            System.out.println(root.data+" ");
+        }
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        tree t=new tree();
+        t.insert(100);
+        t.insert(70);
+        t.insert(110);
+        t.insert(11);
+        t.insert(85);
+        t.insert(105);
+        t.insert(123);
+        t.insert(7);
+        t.insert(93);
+        t.insert(18);
+        t.insert(114);
+        t.insert(115);
+        t.insert(116);
+        System.out.println("------------Pre order traversal-----------------");
+        t.pre(t.root);
+        System.out.println("------------Inorder traversal--------------------");
+        t.inorder(t.root);
+        System.out.println("------------Postorder traversal------------------");
+        t.postorder(t.root);
+        
+        }
+}
+
+
+Output:
+------------Pre order traversal-----------------
+100 
+70 
+11 
+7 
+18 
+85 
+93 
+110 
+105 
+123 
+114 
+115 
+116 
+------------Inorder traversal--------------------
+70 
+11 
+7 
+18 
+85 
+93 
+100 
+110 
+105 
+123 
+114 
+115 
+116 
+------------Postorder traversal------------------
+70 
+11 
+7 
+18 
+85 
+93 
+110 
+105 
+123 
+114 
+115 
+116 
+100 
+
+=== Code Execution Successful ===
