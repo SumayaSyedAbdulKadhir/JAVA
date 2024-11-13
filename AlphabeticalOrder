@@ -1,0 +1,46 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner io = new Scanner(System.in);
+        System.out.println("Enter the number of names: ");
+        int n = io.nextInt();
+        System.out.println("Enter the names: ");
+        String[] names = new String[n];
+        for(int i = 0 ; i < n ; i++){
+            names[i]=io.next();
+        }
+        sortNames(names);
+        System.out.println("Sorted names:");
+        for (int i = 0 ; i < names.length;i++) {
+            System.out.println(names[i]);
+        }
+    }
+        public static void sortNames(String[] names) {
+        int n = names.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i+1; j < n ; j++) {
+                if (names[i].compareTo(names[j]) > 0) {
+                    String temp = names[i];
+                    names[i] = names[j];
+                    names[j] = temp;
+                }
+            }
+        }
+    }
+}
+
+Output:
+Enter the number of names: 
+5
+Enter the names: 
+abi
+prethi
+tamil
+harry
+gokul
+Sorted names:
+abi
+gokul
+harry
+prethi
+tamil
