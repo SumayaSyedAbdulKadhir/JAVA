@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner io = new Scanner(System.in);
+        System.out.print("Enter the height: ");
+        int n = io.nextInt();
+        System.out.print("Enter up minutes: ");
+        int u = io.nextInt();
+        System.out.print("Enter down minutes: ");
+        int d = io.nextInt();
+
+        int currentHeight = 0;
+        int time = 0;
+
+        // Check if a single upward movement can reach or exceed the target height
+        if (u >= n) {
+            System.out.println("Time required to reach height: 1 minute");
+        } else {
+            while (true) {
+                // Climb up
+                currentHeight += u;
+                time++;
+
+                // Check if height reached after climbing
+                if (currentHeight >= n) {
+                    break;
+                }
+
+                // Slide down
+                currentHeight -= d;
+                time++;
+            }
+            System.out.println("Time required to reach height: " + time + " minutes");
+        }
+    }
+}
