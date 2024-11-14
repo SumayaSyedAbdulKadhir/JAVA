@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class TrailingZeros {
+    
+    // Function to count the number of trailing zeros in n!
+    public static int countTrailingZeros(int num) {
+        int count = 0;
+        
+        // Iterate through the powers of 5
+        for (int i = 5; num / i > 0; i *= 5) {
+            count += num / i;  // Add the quotient of num divided by i
+        }
+        
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Ask the user to input a number
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+        
+        // Calculate the number of trailing zeros in num!
+        int result = countTrailingZeros(num);
+        
+        // Output the result
+        System.out.println("Number of trailing zeros in " + num + "! is: " + result);
+        
+        scanner.close();
+    }
+}
