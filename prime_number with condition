@@ -1,0 +1,32 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+        for(int i=11;i<100;i++){
+            if(prime(i)){
+                if(sum(i)%2==0){
+                    System.out.println(i);
+                }           
+            }
+        }
+    }
+    public static boolean prime(int a){
+        if (a <= 1) return false;  
+        for(int i=2;i<a;i++){
+            if(a%i==0){
+              return false;
+            }
+        }
+       
+        return true;
+    }
+    public static int sum(int b){
+        int s=0;
+      while(b>0){
+            s+=b%10;
+            b/=10;
+        }
+        return s;
+    }
+}
